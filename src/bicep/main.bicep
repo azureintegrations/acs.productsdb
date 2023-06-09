@@ -19,14 +19,14 @@ var resourceNames     = {
 }
 
 // modules
-// module resourceGroupDeployment 'modules/resource_group.bicep' = {
-//   name: 'Deploy Resource Group'
-//   scope: subscription()  
-//   params: {
-//     resourceGroupName: 'rg-acs-sqlserver-${environment}'
-//     resourceGroupLocation: location
-//   }
-// }
+module resourceGroupDeployment 'modules/resource_group.bicep' = {
+  name: 'Deploy Resource Group'
+  scope: subscription()  
+  params: {
+    resourceGroupName: 'rg-acs-sqlserver-${environment}'
+    resourceGroupLocation: location
+  }
+}
 
 module sqlServerDBDeployement 'modules/sql_database.bicep' = {
   name: 'SQL Server DB Deployment'

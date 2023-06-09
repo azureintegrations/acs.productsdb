@@ -34,8 +34,8 @@ jobs:
 
       - name: az bicep deploy
         working-directory: '${{github.workspace}}/src/bicep'
-        run: |
-          az deployment sub create --what-if --location 'Australia East' --template-file ./main.bicep
+        run: |          
+          az deployment sub create --what-if -f ./main.bicep --location australiaeast
 
   deploy:
     name: 'Deploy SQL Server Bicep'
@@ -58,4 +58,4 @@ jobs:
       - name: az bicep deploy      
         working-directory: '${{github.workspace}}/src/bicep'
         run: |            
-            az deployment sub create --location 'Australia East' --template-file ./main.bicep
+          az deployment sub create -f ./main.bicep --location australiaeast
