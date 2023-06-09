@@ -35,7 +35,7 @@ jobs:
       - name: az bicep deploy
         working-directory: '${{github.workspace}}/src/bicep'
         run: |
-            az deployment group create --what-if --resource-group rg-acs-sqlserver-dev --template-file ./sql_database.bicep
+          az deployment sub create --what-if --location 'Australia East' --template-file ./main.bicep
 
   deploy:
     name: 'Deploy SQL Server Bicep'
@@ -57,5 +57,5 @@ jobs:
 
       - name: az bicep deploy
         working-directory: '${{github.workspace}}/src/bicep'
-        run: |
-            az deployment group create --resource-group rg-acs-sqlserver-dev --template-file ./sql_database.bicep
+        run: |            
+            az deployment sub create --location 'Australia East' --template-file ./main.bicep
